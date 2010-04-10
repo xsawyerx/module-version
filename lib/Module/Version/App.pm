@@ -38,7 +38,7 @@ sub run {
         my $version = get_version($module);
         if ( !$version ) {
             if ( ! $self->{'quiet'} ) {
-                $self->warn("module '$module' does not seem to be installed");
+                $self->warn("module '$module' does not seem to be installed.");
             }
 
             next;

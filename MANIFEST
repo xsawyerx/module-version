@@ -5,6 +5,7 @@ lib/Module/Version/App.pm
 LICENSE
 Makefile.PL
 MANIFEST
+MANIFEST.SKIP
 META.yml
 README
 script/module-version

@@ -6,7 +6,7 @@ use warnings;
 use Getopt::Long;
 use Module::Version 'get_version';
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 sub new { return bless {}, shift }
 
@@ -104,7 +104,7 @@ Module::Version::App - Application implementation for Module::Version
 
 =head1 VERSION
 
-Version 0.01
+Version 0.02
 
 =head1 SYNOPSIS
 

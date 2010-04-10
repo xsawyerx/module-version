@@ -1,5 +1,5 @@
 ---
-abstract: 'Fetch versions of modules'
+abstract: 'Get module versions'
 author:
   - 'Sawyer X <xsawyerx@cpan.org>'
 build_requires:

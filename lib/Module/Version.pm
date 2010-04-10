@@ -32,7 +32,7 @@ __END__
 
 =head1 NAME
 
-Module::Version - Fetch versions of modules
+Module::Version - Get module versions
 
 =head1 VERSION
 

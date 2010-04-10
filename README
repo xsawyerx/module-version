@@ -1,5 +1,5 @@
 NAME
-    Module::Version - Fetch versions of modules
+    Module::Version - Get module versions
 
 VERSION
     Version 0.02

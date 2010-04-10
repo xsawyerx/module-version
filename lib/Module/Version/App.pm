@@ -130,13 +130,21 @@ Do all the grunt work.
 
 Parsing the command line arguments using L<Getopt::Long>.
 
+=head2 process
+
+Parses extra arguments from L<Getopt::Long>.
+
 =head2 help
 
 Print a help menu for the application itself.
 
 =head2 error($error)
 
-Exit with appropriate error.
+Calls C<die> with a message.
+
+=head2 warn($warning)
+
+Calls C<warn> with a message.
 
 =head1 EXPORT
 

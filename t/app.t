@@ -12,7 +12,7 @@ eval 'use Test::Output';
 $@ and plan skip_all => 'Test::Output is required to run these tests';
 
 ## TESTS ##
-plan tests => 12;
+plan tests => 13;
 
 use_ok('Module::Version::App');
 my $app = Module::Version::App->new;
@@ -93,16 +93,30 @@ my $run = sub { $app->run() };
     );
 
     # with quiet
-    $app->{'quiet'}++;
+    $app->{'quiet'} = 1;
     stderr_is(
         $run,
         '',
         'run() ok - while crippling get_version, with quiet',
     );
+
+    $app->{'quiet'} = 0;
+}
+
+{
+    # check run() with full
+    $app->{'modules'} = ['Module::Version'];
+    $app->{'full'}    = 1;
+    stdout_is(
+        $run,
+        "Module::Version $Module::Version::VERSION\n",
+        'run() ok - full output',
+    );
+
+    $app->{'full'} = 0;
 }
 
 {
     # check parse()
-
-1
+    1
 }

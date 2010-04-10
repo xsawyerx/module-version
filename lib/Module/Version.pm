@@ -54,7 +54,7 @@ Or using C<module-version>:
     0.04
 
     $ module-version Doesnt::Exist
-    Error: module 'Doesnt::Exist' does not seem to be installed.
+    Warning: module 'Doesnt::Exist' does not seem to be installed.
 
     $ module-version -q Doesnt::Exist
     (no output)
@@ -62,7 +62,7 @@ Or using C<module-version>:
     $ module-version --full Search::GIN
     Search::GIN 0.04
 
-    $ module-version --file modules.txt
+    $ module-version --input modules.txt
     Search::GIN 0.04
     Data::Collector 0.03
     Moose 1.01

@@ -6,8 +6,8 @@ use warnings;
 use base 'Exporter';
 use Carp;
 
-our $VERSION   = '0.02';
-our @EXPORT_OK = qw(get_version);
+our $VERSION   = '0.03';
+our @EXPORT_OK = 'get_version';
 
 sub get_version {
     my $module = shift or croak "Must get a module name\n";
@@ -36,7 +36,7 @@ Module::Version - Get module versions
 
 =head1 VERSION
 
-Version 0.02
+Version 0.03
 
 =head1 SYNOPSIS
 

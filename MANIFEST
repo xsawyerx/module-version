@@ -8,7 +8,7 @@ MANIFEST
 MANIFEST.SKIP
 META.yml
 README
-script/module-version
+bin/module-version
 t/00-load.t
 t/app.t
 t/basic.t

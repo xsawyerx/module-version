@@ -12,7 +12,7 @@ eval 'use Test::Output';
 $@ and plan skip_all => 'Test::Output is required to run these tests';
 
 ## TESTS ##
-plan tests => 10;
+plan tests => 12;
 
 use_ok('Module::Version::App');
 my $app = Module::Version::App->new;
@@ -21,7 +21,7 @@ isa_ok( $app, 'Module::Version::App' );
 {
     # check error()
     eval { $app->error('bwahaha') };
-    ok( $@ =~ /^Error: bwahaha/, 'error() ok' );
+    ok( $@ =~ /^Error\: bwahaha/, 'error() ok' );
 }
 
 {
@@ -64,11 +64,41 @@ my $run = sub { $app->run() };
 
 {
     # check run() with input
-    # create temp file
     my ( $fh, $filename ) = tempfile();
     print {$fh} "Module::Version\n";
+    close $fh or die "Can't close $fh: $!\n";
+
     $app->{'input'} = $filename;
     stdout_is( $run, "$Module::Version::VERSION\n", 'run() ok - with input' );
+}
+
+{
+    # check run() with invalid input
+    $app->{'input'} = 'zzzz765';
+    eval { $run->() };
+    like( $@, qr/^Can't open file 'zzzz765'/, 'run() ok - with invalid input' );
+
+    delete $app->{'input'};
+}
+
+{
+    # check run() with no version from get_version
+    $app->{'modules'} = ['NoExistenziano'];
+
+    # without quiet
+    stderr_like(
+        $run,
+        qr/^Warning\: module 'NoExistenziano' does not seem to be installed/,
+        'run() ok - while crippling get_version, no quiet',
+    );
+
+    # with quiet
+    $app->{'quiet'}++;
+    stderr_is(
+        $run,
+        '',
+        'run() ok - while crippling get_version, with quiet',
+    );
 }
 
 {

@@ -15,14 +15,14 @@ name: Module-Version
 provides:
   Module::Version:
     file: lib/Module/Version.pm
-    version: 0.02
+    version: 0.03
   Module::Version::App:
     file: lib/Module/Version/App.pm
-    version: 0.01
+    version: 0.02
 requires:
   Carp: 0
   Exporter: 0
   Getopt::Long: 0
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.02
+version: 0.03

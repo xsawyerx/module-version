@@ -2,7 +2,7 @@ NAME
     Module::Version - Get module versions
 
 VERSION
-    Version 0.02
+    Version 0.03
 
 SYNOPSIS
     This module fetches the version of any other module.
@@ -21,21 +21,23 @@ SYNOPSIS
         $ module-version Doesnt::Exist
         Warning: module 'Doesnt::Exist' does not seem to be installed.
 
-        $ module-version -q Doesnt::Exist
+        $ module-version --quiet Doesnt::Exist
         (no output)
 
-        $ module-version --full Search::GIN
+        $ module-version --full Search::GIN Moose
         Search::GIN 0.04
+        Moose 1.01
 
         $ module-version --input modules.txt
         Search::GIN 0.04
         Data::Collector 0.03
         Moose 1.01
-        Dancer -
 
 EXPORT
   get_version
-    c<get_version> will be exported if you want it.
+    "get_version" will be exported if explicitly specified.
+
+        use Module::Version 'get_version';
 
     Nothing is exported by default.
 

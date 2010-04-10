@@ -2,7 +2,7 @@ NAME
     Module::Version - Fetch versions of modules
 
 VERSION
-    Version 0.01
+    Version 0.02
 
 SYNOPSIS
     This module fetches the version of any other module.
@@ -19,7 +19,7 @@ SYNOPSIS
         0.04
 
         $ module-version Doesnt::Exist
-        Error: module 'Doesnt::Exist' does not seem to be installed.
+        Warning: module 'Doesnt::Exist' does not seem to be installed.
 
         $ module-version -q Doesnt::Exist
         (no output)
@@ -27,7 +27,7 @@ SYNOPSIS
         $ module-version --full Search::GIN
         Search::GIN 0.04
 
-        $ module-version --file modules.txt
+        $ module-version --input modules.txt
         Search::GIN 0.04
         Data::Collector 0.03
         Moose 1.01

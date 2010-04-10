@@ -7,6 +7,7 @@ WriteMakefile
           'PREREQ_PM' => {
                            'Carp' => 0,
                            'Exporter' => 0,
+                           'Getopt::Long' => 0,
                            'Test::More' => 0
                          },
           'INSTALLDIRS' => 'site',

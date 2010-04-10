@@ -11,7 +11,9 @@ WriteMakefile
                            'Test::More' => 0
                          },
           'INSTALLDIRS' => 'site',
-          'EXE_FILES' => [],
+          'EXE_FILES' => [
+                           'bin/module-version'
+                         ],
           'PL_FILES' => {}
         )
 ;

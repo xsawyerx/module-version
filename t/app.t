@@ -12,7 +12,7 @@ eval 'use Test::Output';
 $@ and plan skip_all => 'Test::Output is required to run these tests';
 
 ## TESTS ##
-plan tests => 30;
+plan tests => 10;
 
 use_ok('Module::Version::App');
 my $app = Module::Version::App->new;
@@ -47,11 +47,19 @@ isa_ok( $app, 'Module::Version::App' );
     );
 }
 
+my $run = sub { $app->run() };
+
 {
     # check run() without input
     $app->{'modules'} = ['Test::More'];
-    my $sub = sub { $app->run() };
-    stdout_is( $sub, "$Test::More::VERSION\n", 'run() ok - regular' );
+    stdout_is( $run, "$Test::More::VERSION\n", 'run() ok - regular' );
+}
+
+{
+    # check run() without modules or input
+    delete $app->{'modules'};
+    eval { $run->() };
+    is( $@, "Error: no modules to check\n", 'run() ok - no modules or input' );
 }
 
 {
@@ -60,6 +68,7 @@ isa_ok( $app, 'Module::Version::App' );
     my ( $fh, $filename ) = tempfile();
     print {$fh} "Module::Version\n";
     $app->{'input'} = $filename;
+    stdout_is( $run, "$Module::Version::VERSION\n", 'run() ok - with input' );
 }
 
 {

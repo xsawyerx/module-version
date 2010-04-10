@@ -36,7 +36,7 @@ Module::Version - Fetch versions of modules
 
 =head1 VERSION
 
-Version 0.01
+Version 0.02
 
 =head1 SYNOPSIS
 

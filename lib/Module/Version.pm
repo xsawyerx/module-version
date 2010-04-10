@@ -56,23 +56,25 @@ Or using C<module-version>:
     $ module-version Doesnt::Exist
     Warning: module 'Doesnt::Exist' does not seem to be installed.
 
-    $ module-version -q Doesnt::Exist
+    $ module-version --quiet Doesnt::Exist
     (no output)
 
-    $ module-version --full Search::GIN
+    $ module-version --full Search::GIN Moose
     Search::GIN 0.04
+    Moose 1.01
 
     $ module-version --input modules.txt
     Search::GIN 0.04
     Data::Collector 0.03
     Moose 1.01
-    Dancer -
 
 =head1 EXPORT
 
 =head2 get_version
 
-C<get_version> will be exported if you want it.
+C<get_version> will be exported if explicitly specified.
+
+    use Module::Version 'get_version';
 
 B<Nothing> is exported by default.
 

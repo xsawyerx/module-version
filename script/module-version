@@ -1,0 +1,10 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+use Module::Version::App;
+
+my $app = Module::Version::App->new;
+
+exit $app->run;

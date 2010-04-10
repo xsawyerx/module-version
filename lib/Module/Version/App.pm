@@ -31,7 +31,7 @@ sub run {
     }
 
     if ( scalar @modules == 0 ) {
-        $self->error('No modules to check');
+        $self->error('no modules to check');
     }
 
     foreach my $module (@modules) {
@@ -58,7 +58,7 @@ sub parse_args {
         'i|input=s' => \$self->{'input'},
         'q|quiet!'  => \$self->{'quiet'},
         '<>'        => sub { $self->process(@_) },
-    ) or $self->error('Could not parse options');
+    ) or $self->error('could not parse options');
 }
 
 sub process {

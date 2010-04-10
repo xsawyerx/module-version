@@ -72,7 +72,7 @@ Or using C<module-version>:
 
 =head2 get_version
 
-c<get_version> will be exported if you want it.
+C<get_version> will be exported if you want it.
 
 B<Nothing> is exported by default.
 

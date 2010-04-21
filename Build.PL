@@ -11,9 +11,10 @@ my $builder = Module::Build->new(
         'Test::More' => 0,
     },
     requires           => {
-        'Carp'         => 0,
-        'Exporter'     => 0,
-        'Getopt::Long' => 0,
+        'Carp'                => 0,
+        'Exporter'            => 0,
+        'Getopt::Long'        => 0,
+        'ExtUtils::MakeMaker' => 0,
     },
     add_to_cleanup     => [ 'Module-Version-*' ],
     create_makefile_pl => 'traditional',

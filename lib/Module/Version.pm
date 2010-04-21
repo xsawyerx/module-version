@@ -5,25 +5,18 @@ use warnings;
 
 use base 'Exporter';
 use Carp;
+use ExtUtils::MakeMaker;
 
 our $VERSION   = '0.03';
 our @EXPORT_OK = 'get_version';
 
 sub get_version {
-    my $module = shift or croak "Must get a module name\n";
+    my $module = shift or croak 'Must get a module name';
+    my $file   = MM->_installed_file_for_module($module);
 
-    eval "require $module";
+    $file || return;
 
-    $@ && return;
-
-    my $version = '';
-
-    {
-        no strict 'refs';
-        $version = ${ $module . '::VERSION' };
-    }
-
-    return $version;
+    return MM->parse_version($file)
 }
 
 1;

@@ -11,6 +11,8 @@ $@ and plan skip_all => 'File::Temp is required to run these tests';
 eval 'use Test::Output';
 $@ and plan skip_all => 'Test::Output is required to run these tests';
 
+use lib 't/lib';
+
 ## TESTS ##
 plan tests => 15;
 

@@ -12,7 +12,7 @@ eval 'use Test::Output';
 $@ and plan skip_all => 'Test::Output is required to run these tests';
 
 ## TESTS ##
-plan tests => 13;
+plan tests => 15;
 
 use_ok('Module::Version::App');
 my $app = Module::Version::App->new;
@@ -114,6 +114,19 @@ my $run = sub { $app->run() };
     );
 
     $app->{'full'} = 0;
+}
+
+{
+    # check run() with a developer version
+    $app->{'modules'} = ['ModuleVersionTester'];
+    stdout_is( $run, "0.0101\n", 'Handling developer version' );
+}
+
+{
+    # check run() with a developer version with --dev (show AS developer ver)
+    $app->{'dev'} = 1;
+    stdout_is( $run, "0.01_01\n", 'Handling developer version with --dev' );
+    $app->{'dev'} = 0;
 }
 
 {

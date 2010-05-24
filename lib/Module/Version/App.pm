@@ -44,6 +44,8 @@ sub run {
             next;
         }
 
+        $self->{'dev'} or $version = eval $version;
+
         my $output = $self->{'full'} ? "$module $version\n" : "$version\n";
         print $output;
     }
@@ -56,6 +58,7 @@ sub parse_args {
         'h|help'    => sub { $self->help },
         'f|full!'   => \$self->{'full'},
         'i|input=s' => \$self->{'input'},
+        'd|dev!'    => \$self->{'dev'},
         'q|quiet!'  => \$self->{'quiet'},
         '<>'        => sub { $self->process(@_) },
     ) or $self->error('could not parse options');
@@ -79,6 +82,7 @@ Provide a module's version, comfortably.
 OPTIONS
     -f | --full     Output name and version (Module::Version 0.02)
     -i | --input    Input file to read module names from
+    -d | --dev      Show developer versions as 0.01_01 instead of 0.0101
     -q | --quiet    Do not error out if module doesn't exist
 
     _END

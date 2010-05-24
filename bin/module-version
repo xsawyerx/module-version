@@ -8,3 +8,82 @@ use Module::Version::App;
 my $app = Module::Version::App->new;
 
 exit $app->run;
+
+__END__
+
+=pod
+
+=head1 NAME
+
+module-version - Program to get module versions
+
+=head1 SYNOPSIS
+
+This program shows you the version of a module or several modules, in a
+comfortable manner.
+
+    module-version Dancer
+    module-version --dev --full This That Another
+    module-version -q -i modules.txt
+
+In Perl-world, we have many ways to determine a version of a module. You can
+run C<perl -MModule -le'print $Module::Version'>, but once the name is very long
+it becomes tiresome to write.
+
+We can try to load the module in a specific version that is (hopefully) greater
+than what we already have installed (if at all). That way we purposely inflict
+an error on the compiler and try to read the error msg. C<perl -MModule\ 9999>.
+This does not work on multiple modules at once and is pretty uncomfortable for
+an end-user. Also, it's kind of scary for beginners.
+
+There are a few modules out there but none of them are applications, nor do
+they have enough options for comfortable day-to-day usage.
+
+=head1 OPTIONS
+
+=over 4
+
+=item -f, --full
+
+This outputs both the name and the version of module, instead of just the name.
+
+    module-version -f ThisModule ThatModule
+
+=item -i, --input FILE
+
+This reads the modules list from a file.
+
+    module-version -i my_modules.txt
+
+=item -d, --dev
+
+This shows the developer version (0.01_01) just as that instead of eval()ing
+them.
+
+    module-version -d Test::More
+
+=item -q, --quiet
+
+Usually if a module does not exist, C<module-version> will warn about it. This
+allows you to silent those warnings and just carry on.
+
+    module-version -q This::Does::Not::Exist But::This::Does
+
+=back
+
+=head1 SEE ALSO
+
+L<Module::Version>
+
+Github page at L<http://github.com/xsawyerx/module-version>.
+
+=head1 COPYRIGHT
+
+Copyright 2010 Sawyer X.
+
+This program is free software; you can redistribute it and/or modify it
+under the terms of either: the GNU General Public License as published
+by the Free Software Foundation; or the Artistic License.
+
+See http://dev.perl.org/licenses/ for more information.
+

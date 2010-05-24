@@ -1,5 +1,9 @@
 Revision history for Module-Version
 
+0.04    24.05.10
+        * Adding --dev (RT #57795):
+          (using --dev you get 0.01_01 on dev instead of 0.0101)
+
 0.03    10.04.10
         * Docs fix
         * Better test coverage

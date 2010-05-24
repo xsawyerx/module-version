@@ -1,3 +1,4 @@
+bin/module-version
 Build.PL
 Changes
 lib/Module/Version.pm
@@ -5,13 +6,12 @@ lib/Module/Version/App.pm
 LICENSE
 Makefile.PL
 MANIFEST
-MANIFEST.SKIP
 META.yml
 README
-bin/module-version
 t/00-load.t
 t/app.t
 t/basic.t
+t/lib/ModuleVersionTester.pm
 t/manifest.t
 t/pod-coverage.t
 t/pod.t

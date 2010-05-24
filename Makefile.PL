@@ -7,7 +7,7 @@ WriteMakefile
           'PREREQ_PM' => {
                            'Carp' => 0,
                            'Exporter' => 0,
-                           'ExtUtils::MakeMaker' => 0,
+                           'ExtUtils::MakeMaker' => '6.56',
                            'Getopt::Long' => 0,
                            'Test::More' => 0
                          },

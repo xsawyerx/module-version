@@ -15,15 +15,15 @@ name: Module-Version
 provides:
   Module::Version:
     file: lib/Module/Version.pm
-    version: 0.04
+    version: 0.06
   Module::Version::App:
     file: lib/Module/Version/App.pm
-    version: 0.02
+    version: 0.03
 requires:
   Carp: 0
   Exporter: 0
-  ExtUtils::MakeMaker: 0
+  ExtUtils::MakeMaker: 6.56
   Getopt::Long: 0
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.04
+version: 0.06

@@ -14,7 +14,7 @@ my $builder = Module::Build->new(
         'Carp'                => 0,
         'Exporter'            => 0,
         'Getopt::Long'        => 0,
-        'ExtUtils::MakeMaker' => 0,
+        'ExtUtils::MakeMaker' => 6.56,
     },
     add_to_cleanup     => [ 'Module-Version-*' ],
     create_makefile_pl => 'traditional',

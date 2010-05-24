@@ -1,5 +1,8 @@
 Revision history for Module-Version
 
+0.07    25.05.10
+        * Documenting module-version program.
+
 0.06    24.05.10
         * Adding --dev (RT #57795):
           (using --dev you get 0.01_01 on dev instead of 0.0101)
@@ -13,13 +16,13 @@ Revision history for Module-Version
         (it's now _way_ faster than before)
 
 0.03    10.04.10
-        * Docs fix
-        * Better test coverage
+        * Docs fix.
+        * Better test coverage.
 
 0.02    10.04.10
-        * Bumping version for test script
-        * Adding Module::Version::App
-        * Adding module-version script
+        * Bumping version for test script.
+        * Adding Module::Version::App.
+        * Adding module-version script.
 
 0.01    10.04.10
         First version, released on an unsuspecting world.

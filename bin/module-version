@@ -33,11 +33,13 @@ it becomes tiresome to write.
 We can try to load the module in a specific version that is (hopefully) greater
 than what we already have installed (if at all). That way we purposely inflict
 an error on the compiler and try to read the error msg. C<perl -MModule\ 9999>.
-This does not work on multiple modules at once and is pretty uncomfortable for
-an end-user. Also, it's kind of scary for beginners.
+This does not work on multiple modules at once. Some modules even have long
+version numbers, such as a date, and then you need to run C<perl
+-MModule\ 9999999999> which is seriously annoying.
 
-There are a few modules out there but none of them are applications, nor do
-they have enough options for comfortable day-to-day usage.
+There are a few modules out there that get you the version number of other
+modules but none of them are applications, nor do they have enough options for
+comfortable day-to-day usage. This is where C<module-version> comes in.
 
 =head1 OPTIONS
 
@@ -45,22 +47,26 @@ they have enough options for comfortable day-to-day usage.
 
 =item -f, --full
 
-This outputs both the name and the version of module, instead of just the name.
+This outputs both the name and the version of module, instead of just the
+version number.
 
     module-version -f ThisModule ThatModule
+    module-version --full ThisModule ThatModule
 
 =item -i, --input FILE
 
-This reads the modules list from a file.
+This reads a list of modules from a file.
 
     module-version -i my_modules.txt
+    module-version --input my_modules.txt
 
 =item -d, --dev
 
-This shows the developer version (0.01_01) just as that instead of eval()ing
+This shows the developer versions (0.01_01) just as that instead of eval()ing
 them.
 
     module-version -d Test::More
+    module-version --dev Test::More
 
 =item -q, --quiet
 
@@ -68,6 +74,7 @@ Usually if a module does not exist, C<module-version> will warn about it. This
 allows you to silent those warnings and just carry on.
 
     module-version -q This::Does::Not::Exist But::This::Does
+    module-version --quiet This::Does::Not::Exist But::This::Does
 
 =back
 

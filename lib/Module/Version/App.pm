@@ -21,13 +21,14 @@ sub run {
     }
 
     if ( my $file = $self->{'input'} ) {
-        open my $fh, '<', $file or die "Can't open file '$file': $!\n";
+        open my $fh, '<', $file
+            or $self->error("Can't open file '$file': $!\n");
 
         my @extra_modules = <$fh>;
         chomp @extra_modules;
         push @modules, @extra_modules;
 
-        close $fh or die "Can't close file '$file': $!\n";
+        close $fh or $self->error("Can't close file '$file': $!\n");
     }
 
     if ( scalar @modules == 0 ) {

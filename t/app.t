@@ -78,7 +78,11 @@ my $run = sub { $app->run() };
     # check run() with invalid input
     $app->{'input'} = 'zzzz765';
     eval { $run->() };
-    like( $@, qr/^Can't open file 'zzzz765'/, 'run() ok - with invalid input' );
+    like(
+        $@,
+        qr/^Error: Can't open file 'zzzz765'/,
+        'run() ok - with invalid input',
+    );
 
     delete $app->{'input'};
 }

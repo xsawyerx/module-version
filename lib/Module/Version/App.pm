@@ -130,7 +130,7 @@ Create a new object.
 
 Do all the grunt work.
 
-=head2 parse_args
+=head2 parse_opts
 
 Parsing the command line arguments using L<Getopt::Long>.
 

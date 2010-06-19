@@ -14,7 +14,7 @@ sub run {
     my $self    = shift;
     my @modules = ();
 
-    $self->parse_args;
+    $self->parse_opts;
 
     if ( my $modules = $self->{'modules'} ) {
         push @modules, @{$modules};
@@ -51,7 +51,7 @@ sub run {
     }
 }
 
-sub parse_args {
+sub parse_opts {
     my $self = shift;
 
     GetOptions(

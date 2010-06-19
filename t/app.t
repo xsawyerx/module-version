@@ -131,7 +131,3 @@ my $run = sub { $app->run() };
     $app->{'dev'} = 0;
 }
 
-{
-    # check parse()
-    1
-}

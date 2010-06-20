@@ -14,17 +14,11 @@ $@ and plan skip_all => 'Test::Output is required to run these tests';
 use lib 't/lib';
 
 ## TESTS ##
-plan tests => 15;
+plan tests => 14;
 
 use_ok('Module::Version::App');
 my $app = Module::Version::App->new;
 isa_ok( $app, 'Module::Version::App' );
-
-{
-    # check error()
-    eval { $app->error('bwahaha') };
-    ok( $@ =~ /^Error\: bwahaha/, 'error() ok' );
-}
 
 {
     # check warn()
@@ -80,7 +74,7 @@ my $run = sub { $app->run() };
     eval { $run->() };
     like(
         $@,
-        qr/^Error: Can't open file 'zzzz765'/,
+        qr/^Can't open 'zzzz765' for reading/,
         'run() ok - with invalid input',
     );
 

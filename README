@@ -2,7 +2,7 @@ NAME
     Module::Version - Get module versions
 
 VERSION
-    Version 0.08
+    Version 0.09
 
 SYNOPSIS
     This module fetches the version of any other module.
@@ -58,6 +58,9 @@ BUGS
     your bug as I make changes.
 
 SUPPORT
+    This module sports 100% test coverage, but in case you have more
+    issues...
+
     You can find documentation for this module with the perldoc command.
 
         perldoc Module::Version

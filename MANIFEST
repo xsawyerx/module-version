@@ -1,4 +1,4 @@
-bin/module-version
+bin/mversion
 Build.PL
 Changes
 lib/Module/Version.pm
@@ -13,5 +13,6 @@ t/app.t
 t/basic.t
 t/lib/ModuleVersionTester.pm
 t/manifest.t
+t/more_opts.t
 t/pod-coverage.t
 t/pod.t

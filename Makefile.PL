@@ -14,7 +14,7 @@ WriteMakefile
                          },
           'INSTALLDIRS' => 'site',
           'EXE_FILES' => [
-                           'bin/module-version'
+                           'bin/mversion'
                          ],
           'PL_FILES' => {}
         )

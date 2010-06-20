@@ -12,6 +12,7 @@ my $builder = Module::Build->new(
     },
     requires           => {
         'Carp'                => 0,
+        'autodie'             => 0,
         'Exporter'            => 0,
         'Getopt::Long'        => 0,
         'ExtUtils::MakeMaker' => 6.56,

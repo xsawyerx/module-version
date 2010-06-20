@@ -7,7 +7,7 @@ use base 'Exporter';
 use Carp;
 use ExtUtils::MakeMaker;
 
-our $VERSION   = '0.08';
+our $VERSION   = '0.09';
 our @EXPORT_OK = 'get_version';
 
 sub get_version {
@@ -29,7 +29,7 @@ Module::Version - Get module versions
 
 =head1 VERSION
 
-Version 0.08
+Version 0.09
 
 =head1 SYNOPSIS
 
@@ -85,11 +85,15 @@ Sawyer X, C<< <xsawyerx at cpan.org> >>
 
 =head1 BUGS
 
-Please report any bugs or feature requests to C<bug-module-version at rt.cpan.org>, or through
-the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Module-Version>.  I will be notified, and then you'll
-automatically be notified of progress on your bug as I make changes.
+Please report any bugs or feature requests to
+C<bug-module-version at rt.cpan.org>, or through the web interface at
+L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Module-Version>.  I will be
+notified, and then you'll automatically be notified of progress on your bug as I
+make changes.
 
 =head1 SUPPORT
+
+This module sports 100% test coverage, but in case you have more issues...
 
 You can find documentation for this module with the perldoc command.
 

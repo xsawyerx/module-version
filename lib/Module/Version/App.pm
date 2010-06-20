@@ -7,7 +7,7 @@ use autodie;
 use Getopt::Long;
 use Module::Version 'get_version';
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 sub new { return bless {}, shift }
 
@@ -109,7 +109,7 @@ Module::Version::App - Application implementation for Module::Version
 
 =head1 VERSION
 
-Version 0.03
+Version 0.04
 
 =head1 SYNOPSIS
 
@@ -168,6 +168,8 @@ notified, and then you'll automatically be notified of progress on your bug as I
 make changes.
 
 =head1 SUPPORT
+
+This module sports 100% test coverage, but in case you have more issues...
 
 You can find documentation for this module with the perldoc command.
 

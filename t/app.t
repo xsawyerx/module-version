@@ -14,7 +14,7 @@ $@ and plan skip_all => 'Test::Output is required to run these tests';
 use lib 't/lib';
 
 ## TESTS ##
-plan tests => 16;
+plan tests => 17;
 
 use_ok('Module::Version::App');
 my $app = Module::Version::App->new;
@@ -140,8 +140,16 @@ my $run = sub { $app->run() };
 }
 
 {
+    # check run() with wrong type of includes
+    $app->{'include'} = 'blah';
+
+    eval { $run->() };
+    is( $@, "Error: include must be an ARRAY ref\n", 'run() ok - bad include' );
+}
+
+{
     # check run() with includes
-    $app->{'include'} = 't/lib/include';
+    $app->{'include'} = ['t/lib/include'];
     stdout_is( $run, "1.21\n", 'No include warrants no result' );
 }
 

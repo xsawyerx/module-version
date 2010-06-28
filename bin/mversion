@@ -53,6 +53,21 @@ version number.
     mversion -f ThisModule ThatModule
     mversion --full ThisModule ThatModule
 
+=item -I, --include DIRECTORY, -I MORE, -I EVENMORE
+
+This lets you add any number of directories to include when trying to get a
+version number. This is very helpful when you're trying to check if the version
+of a module in a specific folder is different than the default one.
+
+    # get the version of ThisModule
+    mversion ThisModule
+
+    # get the version of ThisModule from directory dev_releases
+    mversion -I dev_releases ThisModule
+
+You can include more directories by repeating the flag and argument again. There
+is no limit to how many directories you can include.
+
 =item -i, --input FILE
 
 This reads a list of modules from a file.

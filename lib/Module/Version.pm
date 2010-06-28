@@ -7,7 +7,7 @@ use base 'Exporter';
 use Carp;
 use ExtUtils::MakeMaker;
 
-our $VERSION   = '0.09';
+our $VERSION   = '0.10';
 our @EXPORT_OK = 'get_version';
 
 sub get_version {
@@ -29,7 +29,7 @@ Module::Version - Get module versions
 
 =head1 VERSION
 
-Version 0.09
+Version 0.10
 
 =head1 SYNOPSIS
 

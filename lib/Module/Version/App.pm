@@ -56,7 +56,7 @@ sub run {
             next;
         }
 
-        $self->{'dev'} or $version = eval $version;
+        $self->{'dev'} or $version =~ s/_(.+)$/$1/;
 
         my $output = $self->{'full'} ? "$module $version\n" : "$version\n";
         print $output;

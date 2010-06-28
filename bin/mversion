@@ -15,16 +15,16 @@ __END__
 
 =head1 NAME
 
-module-version - Program to get module versions
+mversion - Program to get module versions
 
 =head1 SYNOPSIS
 
 This program shows you the version of a module or several modules, in a
 comfortable manner.
 
-    module-version Dancer
-    module-version --dev --full This That Another
-    module-version -q -i modules.txt
+    mversion Dancer
+    mversion --dev --full This That Another
+    mversion -q -i modules.txt
 
 In Perl-world, we have many ways to determine a version of a module. You can
 run C<perl -MModule -le'print $Module::Version'>, but once the name is very long
@@ -50,31 +50,31 @@ comfortable day-to-day usage. This is where C<module-version> comes in.
 This outputs both the name and the version of module, instead of just the
 version number.
 
-    module-version -f ThisModule ThatModule
-    module-version --full ThisModule ThatModule
+    mversion -f ThisModule ThatModule
+    mversion --full ThisModule ThatModule
 
 =item -i, --input FILE
 
 This reads a list of modules from a file.
 
-    module-version -i my_modules.txt
-    module-version --input my_modules.txt
+    mversion -i my_modules.txt
+    mversion --input my_modules.txt
 
 =item -d, --dev
 
 This shows the developer versions (0.01_01) just as that instead of eval()ing
 them.
 
-    module-version -d Test::More
-    module-version --dev Test::More
+    mversion -d Test::More
+    mversion --dev Test::More
 
 =item -q, --quiet
 
-Usually if a module does not exist, C<module-version> will warn about it. This
+Usually if a module does not exist, C<mversion> will warn about it. This
 allows you to silent those warnings and just carry on.
 
-    module-version -q This::Does::Not::Exist But::This::Does
-    module-version --quiet This::Does::Not::Exist But::This::Does
+    mversion -q This::Does::Not::Exist But::This::Does
+    mversion --quiet This::Does::Not::Exist But::This::Does
 
 =back
 

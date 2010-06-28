@@ -14,7 +14,7 @@ $@ and plan skip_all => 'Test::Output is required to run these tests';
 use lib 't/lib';
 
 ## TESTS ##
-plan tests => 14;
+plan tests => 16;
 
 use_ok('Module::Version::App');
 my $app = Module::Version::App->new;
@@ -127,5 +127,21 @@ my $run = sub { $app->run() };
     $app->{'dev'} = 1;
     stdout_is( $run, "0.01_01\n", 'Handling developer version with --dev' );
     $app->{'dev'} = 0;
+}
+
+{
+    # check run() before includes
+    $app->{'modules'} = ['ModuleVersionTesterInclude'];
+    $app->{'quiet'  } = 1;
+
+    stdout_is( $run, '', 'No include warrants no result' );
+
+    $app->{'quiet'} = 0;
+}
+
+{
+    # check run() with includes
+    $app->{'include'} = 't/lib/include';
+    stdout_is( $run, "1.21\n", 'No include warrants no result' );
 }
 

@@ -7,7 +7,7 @@ use autodie;
 use Getopt::Long;
 use Module::Version 'get_version';
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 sub new { return bless {}, shift }
 
@@ -29,6 +29,17 @@ sub run {
         push @modules, @extra_modules;
 
         close $fh;
+    }
+
+    if ( $self->{'include'} ) {
+        my $include = $self->{'include'};
+
+        if ( ref $include ne 'ARRAY' ) {
+            $self->error('include must be an ARRAY ref');
+        }
+
+        my @includes = @{$include};
+        unshift @INC, @includes;
     }
 
     if ( scalar @modules == 0 ) {
@@ -56,12 +67,13 @@ sub parse_opts {
     my $self = shift;
 
     GetOptions(
-        'h|help'    => sub { $self->help },
-        'f|full!'   => \$self->{'full'},
-        'i|input=s' => \$self->{'input'},
-        'd|dev!'    => \$self->{'dev'},
-        'q|quiet!'  => \$self->{'quiet'},
-        '<>'        => sub { $self->process(@_) },
+        'h|help'       => sub { $self->help },
+        'f|full!'      => \$self->{'full'},
+        'i|input=s'    => \$self->{'input'},
+        'I|include=s@' => \$self->{'include'},
+        'd|dev!'       => \$self->{'dev'},
+        'q|quiet!'     => \$self->{'quiet'},
+        '<>'           => sub { $self->process(@_) },
     ) or $self->error('could not parse options');
 }
 
@@ -81,7 +93,8 @@ $0 [ OPTIONS ] Module Module Module...
 Provide a module's version, comfortably.
 
 OPTIONS
-    -f | --full     Output name and version (Module::Version 0.02)
+    -f | --full     Output name and version (a la Module::Version 0.05)
+    -I | --include  Include any number of folders to include as well
     -i | --input    Input file to read module names from
     -d | --dev      Show developer versions as 0.01_01 instead of 0.0101
     -q | --quiet    Do not error out if module doesn't exist
@@ -109,7 +122,7 @@ Module::Version::App - Application implementation for Module::Version
 
 =head1 VERSION
 
-Version 0.04
+Version 0.05
 
 =head1 SYNOPSIS
 

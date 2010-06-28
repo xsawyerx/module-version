@@ -11,6 +11,7 @@ README
 t/00-load.t
 t/app.t
 t/basic.t
+t/lib/include/ModuleVersionTesterInclude.pm
 t/lib/ModuleVersionTester.pm
 t/manifest.t
 t/more_opts.t

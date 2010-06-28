@@ -1,5 +1,11 @@
 Revision history for Module-Version
 
+0.10    28.06.10
+        * Adding -I option, GH #1.
+        * Using cleanup regex for dev versions instead of eval.
+          (otherwise, versions like 0.10 don't work)
+        * Fixing some documentations to refer to new CLI app name.
+
 0.09    20.06.10
         * CLI app now called "mversion" instead of "module-version".
         * Using autodie, it's fun!

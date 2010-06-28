@@ -15,10 +15,10 @@ name: Module-Version
 provides:
   Module::Version:
     file: lib/Module/Version.pm
-    version: 0.09
+    version: 0.10
   Module::Version::App:
     file: lib/Module/Version/App.pm
-    version: 0.04
+    version: 0.05
 requires:
   Carp: 0
   Exporter: 0
@@ -27,4 +27,4 @@ requires:
   autodie: 0
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.09
+version: 0.10

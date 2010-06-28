@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use autodie;
-use Getopt::Long;
+use Getopt::Long    qw( :config no_ignore_case );
 use Module::Version 'get_version';
 
 our $VERSION = '0.05';

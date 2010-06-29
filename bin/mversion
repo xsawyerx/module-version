@@ -39,7 +39,7 @@ version numbers, such as a date, and then you need to run C<perl
 
 There are a few modules out there that get you the version number of other
 modules but none of them are applications, nor do they have enough options for
-comfortable day-to-day usage. This is where C<module-version> comes in.
+comfortable day-to-day usage. This is where C<mversion> comes in.
 
 =head1 OPTIONS
 

@@ -15,7 +15,7 @@ name: Module-Version
 provides:
   Module::Version:
     file: lib/Module/Version.pm
-    version: 0.10
+    version: 0.11
   Module::Version::App:
     file: lib/Module/Version/App.pm
     version: 0.05
@@ -27,4 +27,4 @@ requires:
   autodie: 0
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.10
+version: 0.11

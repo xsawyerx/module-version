@@ -2,7 +2,7 @@ NAME
     Module::Version - Get module versions
 
 VERSION
-    Version 0.11
+    Version 0.12
 
 SYNOPSIS
     This module fetches the version of any other module.

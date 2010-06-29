@@ -1,5 +1,8 @@
 Revision history for Module-Version
 
+0.11    29.06.10
+        * Fixing some more documentation I missed.
+
 0.10    28.06.10
         * Adding -I option, GH #1.
         * Using cleanup regex for dev versions instead of eval.

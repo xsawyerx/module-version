@@ -1,62 +1,59 @@
 package Module::Version::App;
+# ABSTRACT: Application implementation for Module::Version
 
 use strict;
 use warnings;
+use Carp qw< croak >;
 
-use autodie;
 use Getopt::Long    qw( :config no_ignore_case );
 use Module::Version 'get_version';
 
-our $VERSION = '0.05';
+our $VERSION = '0.13';
 
-sub new { return bless {}, shift }
+sub new { return bless {}, $_[0] }
 
 sub run {
     my $self    = shift;
-    my @modules = ();
+    my @modules;
 
     $self->parse_opts;
 
-    if ( my $modules = $self->{'modules'} ) {
-        push @modules, @{$modules};
-    }
+    $self->{'modules'}
+        and push @modules, @{ $self->{'modules'} };
 
     if ( my $file = $self->{'input'} ) {
-        open my $fh, '<', $file;
+        open my $fh, '<', $file
+            or croak("Cannot open '$file': $!");
 
-        my @extra_modules = <$fh>;
-        chomp @extra_modules;
+        chomp( my @extra_modules = <$fh> );
         push @modules, @extra_modules;
 
-        close $fh;
+        close $fh
+            or croak("Cannot close '$file': $!");
     }
 
     if ( $self->{'include'} ) {
         my $include = $self->{'include'};
 
-        if ( ref $include ne 'ARRAY' ) {
-            $self->error('include must be an ARRAY ref');
-        }
+        ref $include eq 'ARRAY'
+            or die "Error: include must be an ARRAY ref\n";
 
-        my @includes = @{$include};
-        unshift @INC, @includes;
+        unshift @INC, @{$include};
     }
 
-    if ( scalar @modules == 0 ) {
-        $self->error('no modules to check');
-    }
+    @modules
+        or die "Error: no modules to check\n";
 
     foreach my $module (@modules) {
         my $version = get_version($module);
         if ( !$version ) {
-            if ( ! $self->{'quiet'} ) {
-                $self->warn("module '$module' does not seem to be installed.");
-            }
+            $self->{'quiet'}
+                or warn "Warning: module '$module' does not seem to be installed.\n";
 
             next;
         }
 
-        $self->{'dev'} or $version =~ s/_(.+)$/$1/;
+        $self->{'dev'} or $version =~ s/_(.+)$/$1/xms;
 
         my $output = $self->{'full'} ? "$module $version\n" : "$version\n";
         print $output;
@@ -87,7 +84,7 @@ sub process {
 sub help {
     my $self = shift;
 
-    print <<"    _END";
+    print << "_END_HEREDOC";
 $0 [ OPTIONS ] Module Module Module...
 
 Provide a module's version, comfortably.
@@ -99,30 +96,12 @@ OPTIONS
     -d | --dev      Show developer versions as 0.01_01 instead of 0.0101
     -q | --quiet    Do not error out if module doesn't exist
 
-    _END
-}
-
-sub error {
-    my ( $self, $error ) = @_;
-    die "Error: $error\n";
-}
-
-sub warn {
-    my ( $self, $warning ) = @_;
-    warn "Warning: $warning\n";
+_END_HEREDOC
 }
 
 1;
 
 __END__
-
-=head1 NAME
-
-Module::Version::App - Application implementation for Module::Version
-
-=head1 VERSION
-
-Version 0.05
 
 =head1 SYNOPSIS
 
@@ -168,10 +147,6 @@ Calls C<warn> with a message.
 
 Object Oriented, nothing is exported.
 
-=head1 AUTHOR
-
-Sawyer X, C<< <xsawyerx at cpan.org> >>
-
 =head1 BUGS
 
 Please report any bugs or feature requests to
@@ -209,14 +184,3 @@ L<http://cpanratings.perl.org/d/Module-Version>
 L<http://search.cpan.org/dist/Module-Version/>
 
 =back
-
-=head1 LICENSE AND COPYRIGHT
-
-Copyright 2010 Sawyer X.
-
-This program is free software; you can redistribute it and/or modify it
-under the terms of either: the GNU General Public License as published
-by the Free Software Foundation; or the Artistic License.
-
-See http://dev.perl.org/licenses/ for more information.
-

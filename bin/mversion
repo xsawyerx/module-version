@@ -73,6 +73,10 @@ This reads a list of modules from a file.
     mversion -i my_modules.txt
     mversion --input my_modules.txt
 
+=item -l, --local-lib DIR 
+
+Includes the L<local::lib> DIR in the module paths.
+
 =item -d, --dev
 
 This shows the developer versions (0.01_01) just as that instead of eval()ing

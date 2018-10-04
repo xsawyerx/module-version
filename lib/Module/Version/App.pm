@@ -18,6 +18,11 @@ sub run {
 
     $self->parse_opts;
 
+    if( $self->{local_lib} and -d  $self->{local_lib} ) {
+        require local::lib;
+        local::lib->import( $self->{local_lib} );
+    }
+
     $self->{'modules'}
         and push @modules, @{ $self->{'modules'} };
 
@@ -67,6 +72,7 @@ sub parse_opts {
         'h|help'       => sub { $self->help },
         'f|full!'      => \$self->{'full'},
         'i|input=s'    => \$self->{'input'},
+        'l|local-lib=s'=> \$self->{'local_lib'},
         'I|include=s@' => \$self->{'include'},
         'd|dev!'       => \$self->{'dev'},
         'q|quiet!'     => \$self->{'quiet'},

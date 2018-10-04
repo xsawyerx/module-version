@@ -96,11 +96,12 @@ $0 [ OPTIONS ] Module Module Module...
 Provide a module's version, comfortably.
 
 OPTIONS
-    -f | --full     Output name and version (a la Module::Version 0.05)
-    -I | --include  Include any number of directories to include as well
-    -i | --input    Input file to read module names from
-    -d | --dev      Show developer versions as 0.01_01 instead of 0.0101
-    -q | --quiet    Do not error out if module doesn't exist
+    -f | --full      Output name and version (a la Module::Version 0.05)
+    -I | --include   Include any number of directories to include as well
+    -i | --input     Input file to read module names from 
+    -l | --local-lib Additional local::lib dir to search
+    -d | --dev       Show developer versions as 0.01_01 instead of 0.0101
+    -q | --quiet     Do not error out if module doesn't exist
 
 _END_HEREDOC
 }

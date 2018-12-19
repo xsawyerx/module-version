@@ -1,5 +1,7 @@
 {{$NEXT}}
 
+        * Add support for local::lib.
+          (Yanick Champoux)
         * Require Test::Output for the testing.
           (Paul Cochrane)
         * Add initial Travis CI support.

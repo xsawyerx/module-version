@@ -1,5 +1,7 @@
 {{$NEXT}}
 
+        * Require Test::Output for the testing.
+          (Paul Cochrane)
         * Add initial Travis CI support.
           (Paul Cochrane)
         * Fix test failure relating to incorrect hard-coded version.

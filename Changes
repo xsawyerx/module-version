@@ -1,5 +1,7 @@
 {{$NEXT}}
 
+0.200     2018-12-20 00:06:37+02:00 Asia/Jerusalem
+
         * Add support for local::lib.
           (Yanick Champoux)
         * Require Test::Output for the testing.

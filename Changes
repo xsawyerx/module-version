@@ -1,5 +1,8 @@
 {{$NEXT}}
 
+        * Fix test failure relating to incorrect hard-coded version.
+          (Yanick Champoux)
+
 0.13      2018-08-26 23:55:36+03:00 Asia/Jerusalem
 
         * Fix a test failure when Test::More's VERSION ends with unnecessary

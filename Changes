@@ -1,5 +1,8 @@
 {{$NEXT}}
 
+        * Fix tests.
+        * Generate minimum Perl version. (Mohammad S Anwar)
+
 0.200     2018-12-20 00:06:37+02:00 Asia/Jerusalem
 
         * Add support for local::lib.
